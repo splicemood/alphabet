@@ -1,6 +1,6 @@
 {
   "name": "@splicemood/alphabet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stable Unicode alphabets for Nano ID, base-X encoders, visual IDs and localized tokens.",
   "type": "module",
   "sideEffects": false,
