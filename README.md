@@ -275,8 +275,10 @@ Required repository setup:
 - GitHub Actions workflow permissions: read and write.
 - No tag protection that blocks GitHub Actions from updating `v*` tags.
 - GitHub Pages source: GitHub Actions.
-- GitHub secret `NPM_TOKEN` with a granular npm access token that has publish access and bypass 2FA enabled.
+- npm Trusted Publishing configured for `@splicemood/alphabet`, repository `splicemood/alphabet`, and workflow filename `release.yml`.
 - PyPI Trusted Publishing configured for `splicemood-alphabet` and `.github/workflows/release.yml`.
+
+The npm release workflow uses GitHub OIDC and does not pass `NODE_AUTH_TOKEN`. If npm returns `EOTP`, the workflow is using token authentication instead of Trusted Publishing. For the first npm publish, create the package manually with OTP or with a granular npm token that has publish access and bypass 2FA enabled, then configure Trusted Publishing on the package settings page.
 
 Release `0.1.0`:
 
