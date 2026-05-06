@@ -84,5 +84,6 @@ jobs:
           CHECK_DIR="$(mktemp -d)"
           cd "$CHECK_DIR"
           go mod init release-check
-          go list "github.com/splicemood/alphabet/ru@${TAG}"
-          go list "github.com/splicemood/alphabet/rudigits@${TAG}"
+          go get "github.com/splicemood/alphabet@${TAG}"
+          go list "github.com/splicemood/alphabet/ru"
+          go list "github.com/splicemood/alphabet/rudigits"
