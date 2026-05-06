@@ -40,11 +40,12 @@
           <div class="terminal-bar">
             <span></span><span></span><span></span>
           </div>
-          <pre><code>import alphabet from "@splicemood/alphabet/ru";
+          <pre><code data-snippet="hero">import { customAlphabet } from "nanoid";
+import { ruDigits } from "@splicemood/alphabet";
 
-const tokenAlphabet = alphabet;
-console.log(tokenAlphabet.length);</code></pre>
-          <button class="copy-button" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru&quot;;">Copy</button>
+const gen = customAlphabet(ruDigits, 21);
+console.log(gen());</code></pre>
+          <button class="copy-button" type="button" data-copy-target="hero">Copy</button>
         </div>
       </section>
     </header>
@@ -72,70 +73,51 @@ console.log(tokenAlphabet.length);</code></pre>
         </div>
         <div class="snippet-list">
           <div class="snippet">
-            <code>npm install @splicemood/alphabet</code>
-            <button type="button" data-copy="npm install @splicemood/alphabet">Copy</button>
-          </div>
-          <div class="snippet">
-            <code>pip install splicemood-alphabet</code>
-            <button type="button" data-copy="pip install splicemood-alphabet">Copy</button>
-          </div>
-          <div class="snippet">
-            <code>go get github.com/splicemood/alphabet</code>
-            <button type="button" data-copy="go get github.com/splicemood/alphabet">Copy</button>
+            <code data-snippet="install">npm install @splicemood/alphabet nanoid</code>
+            <button type="button" data-copy-target="install">Copy</button>
           </div>
         </div>
       </section>
 
       <section id="usage" class="section">
         <p class="eyebrow">Usage</p>
-        <h2>Copy a string, plug it into your encoder.</h2>
+        <h2>Select once, copy matching examples everywhere.</h2>
+        <div class="usage-controls" aria-label="Example controls">
+          <label>
+            Alphabet
+            <select id="alphabet-select"></select>
+          </label>
+          <label>
+            Programming language
+            <select id="runtime-select">
+              <option value="js">TypeScript</option>
+              <option value="go">Go</option>
+              <option value="python">Python</option>
+            </select>
+          </label>
+        </div>
+        <p class="selected-note">
+          Showing <strong data-selected-label>ru-digits</strong> examples. The same choice updates install,
+          import and Nano ID snippets across this page.
+        </p>
         <div class="code-grid">
           <article class="code-card">
             <header>
-              <h3>JS subpath</h3>
-              <button type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru-digits&quot;;">Copy</button>
-            </header>
-            <pre><code>import alphabet from "@splicemood/alphabet/ru-digits";</code></pre>
-          </article>
-          <article class="code-card">
-            <header>
-              <h3>JS root</h3>
-              <button type="button" data-copy="import { ruDigits } from &quot;@splicemood/alphabet&quot;;">Copy</button>
-            </header>
-            <pre><code>import { ruDigits } from "@splicemood/alphabet";</code></pre>
-          </article>
-          <article class="code-card">
-            <header>
               <h3>Nano ID</h3>
-              <button type="button" data-copy="import { customAlphabet } from &quot;nanoid&quot;;&#10;import alphabet from &quot;@splicemood/alphabet/ru-digits&quot;;&#10;&#10;const createId = customAlphabet(alphabet, 21);">Copy</button>
+              <button type="button" data-copy-target="nanoid">Copy</button>
             </header>
-            <pre><code>import { customAlphabet } from "nanoid";
-import alphabet from "@splicemood/alphabet/ru-digits";
+            <pre><code data-snippet="nanoid">import { customAlphabet } from "nanoid";
+import { ruDigits } from "@splicemood/alphabet";
 
-const createId = customAlphabet(alphabet, 21);</code></pre>
+const gen = customAlphabet(ruDigits, 21);
+console.log(gen());</code></pre>
           </article>
           <article class="code-card">
             <header>
-              <h3>Python</h3>
-              <button type="button" data-copy="from splicemood_alphabet.ru_digits import alphabet">Copy</button>
+              <h3>Import only</h3>
+              <button type="button" data-copy-target="import">Copy</button>
             </header>
-            <pre><code>from splicemood_alphabet.ru_digits import alphabet</code></pre>
-          </article>
-          <article class="code-card">
-            <header>
-              <h3>Go</h3>
-              <button type="button" data-copy="import &quot;github.com/splicemood/alphabet/rudigits&quot;">Copy</button>
-            </header>
-            <pre><code>import "github.com/splicemood/alphabet/rudigits"</code></pre>
-          </article>
-          <article class="code-card">
-            <header>
-              <h3>Base-X</h3>
-              <button type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/en-digits&quot;;&#10;&#10;const base = [...alphabet].length;">Copy</button>
-            </header>
-            <pre><code>import alphabet from "@splicemood/alphabet/en-digits";
-
-const base = [...alphabet].length;</code></pre>
+            <pre><code data-snippet="import">import { ruDigits } from "@splicemood/alphabet";</code></pre>
           </article>
         </div>
       </section>
