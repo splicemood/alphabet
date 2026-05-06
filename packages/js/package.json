@@ -1,0 +1,724 @@
+{
+  "name": "@splicemood/alphabet",
+  "version": "0.1.0",
+  "description": "Stable Unicode alphabets for Nano ID, base-X encoders, visual IDs and localized tokens.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./ru": {
+      "types": "./dist/ru.d.ts",
+      "import": "./dist/ru.js",
+      "default": "./dist/ru.js"
+    },
+    "./ru-digits": {
+      "types": "./dist/ru-digits.d.ts",
+      "import": "./dist/ru-digits.js",
+      "default": "./dist/ru-digits.js"
+    },
+    "./en": {
+      "types": "./dist/en.d.ts",
+      "import": "./dist/en.js",
+      "default": "./dist/en.js"
+    },
+    "./en-digits": {
+      "types": "./dist/en-digits.d.ts",
+      "import": "./dist/en-digits.js",
+      "default": "./dist/en-digits.js"
+    },
+    "./tr": {
+      "types": "./dist/tr.d.ts",
+      "import": "./dist/tr.js",
+      "default": "./dist/tr.js"
+    },
+    "./tr-digits": {
+      "types": "./dist/tr-digits.d.ts",
+      "import": "./dist/tr-digits.js",
+      "default": "./dist/tr-digits.js"
+    },
+    "./es": {
+      "types": "./dist/es.d.ts",
+      "import": "./dist/es.js",
+      "default": "./dist/es.js"
+    },
+    "./es-digits": {
+      "types": "./dist/es-digits.d.ts",
+      "import": "./dist/es-digits.js",
+      "default": "./dist/es-digits.js"
+    },
+    "./latin": {
+      "types": "./dist/latin.d.ts",
+      "import": "./dist/latin.js",
+      "default": "./dist/latin.js"
+    },
+    "./latin-digits": {
+      "types": "./dist/latin-digits.d.ts",
+      "import": "./dist/latin-digits.js",
+      "default": "./dist/latin-digits.js"
+    },
+    "./id": {
+      "types": "./dist/id.d.ts",
+      "import": "./dist/id.js",
+      "default": "./dist/id.js"
+    },
+    "./id-digits": {
+      "types": "./dist/id-digits.d.ts",
+      "import": "./dist/id-digits.js",
+      "default": "./dist/id-digits.js"
+    },
+    "./ms": {
+      "types": "./dist/ms.d.ts",
+      "import": "./dist/ms.js",
+      "default": "./dist/ms.js"
+    },
+    "./ms-digits": {
+      "types": "./dist/ms-digits.d.ts",
+      "import": "./dist/ms-digits.js",
+      "default": "./dist/ms-digits.js"
+    },
+    "./sw": {
+      "types": "./dist/sw.d.ts",
+      "import": "./dist/sw.js",
+      "default": "./dist/sw.js"
+    },
+    "./sw-digits": {
+      "types": "./dist/sw-digits.d.ts",
+      "import": "./dist/sw-digits.js",
+      "default": "./dist/sw-digits.js"
+    },
+    "./nl": {
+      "types": "./dist/nl.d.ts",
+      "import": "./dist/nl.js",
+      "default": "./dist/nl.js"
+    },
+    "./nl-digits": {
+      "types": "./dist/nl-digits.d.ts",
+      "import": "./dist/nl-digits.js",
+      "default": "./dist/nl-digits.js"
+    },
+    "./de": {
+      "types": "./dist/de.d.ts",
+      "import": "./dist/de.js",
+      "default": "./dist/de.js"
+    },
+    "./de-digits": {
+      "types": "./dist/de-digits.d.ts",
+      "import": "./dist/de-digits.js",
+      "default": "./dist/de-digits.js"
+    },
+    "./fr": {
+      "types": "./dist/fr.d.ts",
+      "import": "./dist/fr.js",
+      "default": "./dist/fr.js"
+    },
+    "./fr-digits": {
+      "types": "./dist/fr-digits.d.ts",
+      "import": "./dist/fr-digits.js",
+      "default": "./dist/fr-digits.js"
+    },
+    "./pt": {
+      "types": "./dist/pt.d.ts",
+      "import": "./dist/pt.js",
+      "default": "./dist/pt.js"
+    },
+    "./pt-digits": {
+      "types": "./dist/pt-digits.d.ts",
+      "import": "./dist/pt-digits.js",
+      "default": "./dist/pt-digits.js"
+    },
+    "./it": {
+      "types": "./dist/it.d.ts",
+      "import": "./dist/it.js",
+      "default": "./dist/it.js"
+    },
+    "./it-digits": {
+      "types": "./dist/it-digits.d.ts",
+      "import": "./dist/it-digits.js",
+      "default": "./dist/it-digits.js"
+    },
+    "./pl": {
+      "types": "./dist/pl.d.ts",
+      "import": "./dist/pl.js",
+      "default": "./dist/pl.js"
+    },
+    "./pl-digits": {
+      "types": "./dist/pl-digits.d.ts",
+      "import": "./dist/pl-digits.js",
+      "default": "./dist/pl-digits.js"
+    },
+    "./cs": {
+      "types": "./dist/cs.d.ts",
+      "import": "./dist/cs.js",
+      "default": "./dist/cs.js"
+    },
+    "./cs-digits": {
+      "types": "./dist/cs-digits.d.ts",
+      "import": "./dist/cs-digits.js",
+      "default": "./dist/cs-digits.js"
+    },
+    "./sk": {
+      "types": "./dist/sk.d.ts",
+      "import": "./dist/sk.js",
+      "default": "./dist/sk.js"
+    },
+    "./sk-digits": {
+      "types": "./dist/sk-digits.d.ts",
+      "import": "./dist/sk-digits.js",
+      "default": "./dist/sk-digits.js"
+    },
+    "./sl": {
+      "types": "./dist/sl.d.ts",
+      "import": "./dist/sl.js",
+      "default": "./dist/sl.js"
+    },
+    "./sl-digits": {
+      "types": "./dist/sl-digits.d.ts",
+      "import": "./dist/sl-digits.js",
+      "default": "./dist/sl-digits.js"
+    },
+    "./hr": {
+      "types": "./dist/hr.d.ts",
+      "import": "./dist/hr.js",
+      "default": "./dist/hr.js"
+    },
+    "./hr-digits": {
+      "types": "./dist/hr-digits.d.ts",
+      "import": "./dist/hr-digits.js",
+      "default": "./dist/hr-digits.js"
+    },
+    "./bs": {
+      "types": "./dist/bs.d.ts",
+      "import": "./dist/bs.js",
+      "default": "./dist/bs.js"
+    },
+    "./bs-digits": {
+      "types": "./dist/bs-digits.d.ts",
+      "import": "./dist/bs-digits.js",
+      "default": "./dist/bs-digits.js"
+    },
+    "./sr-latin": {
+      "types": "./dist/sr-latin.d.ts",
+      "import": "./dist/sr-latin.js",
+      "default": "./dist/sr-latin.js"
+    },
+    "./sr-latin-digits": {
+      "types": "./dist/sr-latin-digits.d.ts",
+      "import": "./dist/sr-latin-digits.js",
+      "default": "./dist/sr-latin-digits.js"
+    },
+    "./hu": {
+      "types": "./dist/hu.d.ts",
+      "import": "./dist/hu.js",
+      "default": "./dist/hu.js"
+    },
+    "./hu-digits": {
+      "types": "./dist/hu-digits.d.ts",
+      "import": "./dist/hu-digits.js",
+      "default": "./dist/hu-digits.js"
+    },
+    "./fi": {
+      "types": "./dist/fi.d.ts",
+      "import": "./dist/fi.js",
+      "default": "./dist/fi.js"
+    },
+    "./fi-digits": {
+      "types": "./dist/fi-digits.d.ts",
+      "import": "./dist/fi-digits.js",
+      "default": "./dist/fi-digits.js"
+    },
+    "./sv": {
+      "types": "./dist/sv.d.ts",
+      "import": "./dist/sv.js",
+      "default": "./dist/sv.js"
+    },
+    "./sv-digits": {
+      "types": "./dist/sv-digits.d.ts",
+      "import": "./dist/sv-digits.js",
+      "default": "./dist/sv-digits.js"
+    },
+    "./no": {
+      "types": "./dist/no.d.ts",
+      "import": "./dist/no.js",
+      "default": "./dist/no.js"
+    },
+    "./no-digits": {
+      "types": "./dist/no-digits.d.ts",
+      "import": "./dist/no-digits.js",
+      "default": "./dist/no-digits.js"
+    },
+    "./da": {
+      "types": "./dist/da.d.ts",
+      "import": "./dist/da.js",
+      "default": "./dist/da.js"
+    },
+    "./da-digits": {
+      "types": "./dist/da-digits.d.ts",
+      "import": "./dist/da-digits.js",
+      "default": "./dist/da-digits.js"
+    },
+    "./is": {
+      "types": "./dist/is.d.ts",
+      "import": "./dist/is.js",
+      "default": "./dist/is.js"
+    },
+    "./is-digits": {
+      "types": "./dist/is-digits.d.ts",
+      "import": "./dist/is-digits.js",
+      "default": "./dist/is-digits.js"
+    },
+    "./et": {
+      "types": "./dist/et.d.ts",
+      "import": "./dist/et.js",
+      "default": "./dist/et.js"
+    },
+    "./et-digits": {
+      "types": "./dist/et-digits.d.ts",
+      "import": "./dist/et-digits.js",
+      "default": "./dist/et-digits.js"
+    },
+    "./lv": {
+      "types": "./dist/lv.d.ts",
+      "import": "./dist/lv.js",
+      "default": "./dist/lv.js"
+    },
+    "./lv-digits": {
+      "types": "./dist/lv-digits.d.ts",
+      "import": "./dist/lv-digits.js",
+      "default": "./dist/lv-digits.js"
+    },
+    "./lt": {
+      "types": "./dist/lt.d.ts",
+      "import": "./dist/lt.js",
+      "default": "./dist/lt.js"
+    },
+    "./lt-digits": {
+      "types": "./dist/lt-digits.d.ts",
+      "import": "./dist/lt-digits.js",
+      "default": "./dist/lt-digits.js"
+    },
+    "./ro": {
+      "types": "./dist/ro.d.ts",
+      "import": "./dist/ro.js",
+      "default": "./dist/ro.js"
+    },
+    "./ro-digits": {
+      "types": "./dist/ro-digits.d.ts",
+      "import": "./dist/ro-digits.js",
+      "default": "./dist/ro-digits.js"
+    },
+    "./vi": {
+      "types": "./dist/vi.d.ts",
+      "import": "./dist/vi.js",
+      "default": "./dist/vi.js"
+    },
+    "./vi-digits": {
+      "types": "./dist/vi-digits.d.ts",
+      "import": "./dist/vi-digits.js",
+      "default": "./dist/vi-digits.js"
+    },
+    "./sq": {
+      "types": "./dist/sq.d.ts",
+      "import": "./dist/sq.js",
+      "default": "./dist/sq.js"
+    },
+    "./sq-digits": {
+      "types": "./dist/sq-digits.d.ts",
+      "import": "./dist/sq-digits.js",
+      "default": "./dist/sq-digits.js"
+    },
+    "./az": {
+      "types": "./dist/az.d.ts",
+      "import": "./dist/az.js",
+      "default": "./dist/az.js"
+    },
+    "./az-digits": {
+      "types": "./dist/az-digits.d.ts",
+      "import": "./dist/az-digits.js",
+      "default": "./dist/az-digits.js"
+    },
+    "./ca": {
+      "types": "./dist/ca.d.ts",
+      "import": "./dist/ca.js",
+      "default": "./dist/ca.js"
+    },
+    "./ca-digits": {
+      "types": "./dist/ca-digits.d.ts",
+      "import": "./dist/ca-digits.js",
+      "default": "./dist/ca-digits.js"
+    },
+    "./eo": {
+      "types": "./dist/eo.d.ts",
+      "import": "./dist/eo.js",
+      "default": "./dist/eo.js"
+    },
+    "./eo-digits": {
+      "types": "./dist/eo-digits.d.ts",
+      "import": "./dist/eo-digits.js",
+      "default": "./dist/eo-digits.js"
+    },
+    "./mt": {
+      "types": "./dist/mt.d.ts",
+      "import": "./dist/mt.js",
+      "default": "./dist/mt.js"
+    },
+    "./mt-digits": {
+      "types": "./dist/mt-digits.d.ts",
+      "import": "./dist/mt-digits.js",
+      "default": "./dist/mt-digits.js"
+    },
+    "./uk": {
+      "types": "./dist/uk.d.ts",
+      "import": "./dist/uk.js",
+      "default": "./dist/uk.js"
+    },
+    "./uk-digits": {
+      "types": "./dist/uk-digits.d.ts",
+      "import": "./dist/uk-digits.js",
+      "default": "./dist/uk-digits.js"
+    },
+    "./be": {
+      "types": "./dist/be.d.ts",
+      "import": "./dist/be.js",
+      "default": "./dist/be.js"
+    },
+    "./be-digits": {
+      "types": "./dist/be-digits.d.ts",
+      "import": "./dist/be-digits.js",
+      "default": "./dist/be-digits.js"
+    },
+    "./bg": {
+      "types": "./dist/bg.d.ts",
+      "import": "./dist/bg.js",
+      "default": "./dist/bg.js"
+    },
+    "./bg-digits": {
+      "types": "./dist/bg-digits.d.ts",
+      "import": "./dist/bg-digits.js",
+      "default": "./dist/bg-digits.js"
+    },
+    "./sr-cyrillic": {
+      "types": "./dist/sr-cyrillic.d.ts",
+      "import": "./dist/sr-cyrillic.js",
+      "default": "./dist/sr-cyrillic.js"
+    },
+    "./sr-cyrillic-digits": {
+      "types": "./dist/sr-cyrillic-digits.d.ts",
+      "import": "./dist/sr-cyrillic-digits.js",
+      "default": "./dist/sr-cyrillic-digits.js"
+    },
+    "./mk": {
+      "types": "./dist/mk.d.ts",
+      "import": "./dist/mk.js",
+      "default": "./dist/mk.js"
+    },
+    "./mk-digits": {
+      "types": "./dist/mk-digits.d.ts",
+      "import": "./dist/mk-digits.js",
+      "default": "./dist/mk-digits.js"
+    },
+    "./kk-cyrillic": {
+      "types": "./dist/kk-cyrillic.d.ts",
+      "import": "./dist/kk-cyrillic.js",
+      "default": "./dist/kk-cyrillic.js"
+    },
+    "./kk-cyrillic-digits": {
+      "types": "./dist/kk-cyrillic-digits.d.ts",
+      "import": "./dist/kk-cyrillic-digits.js",
+      "default": "./dist/kk-cyrillic-digits.js"
+    },
+    "./ky-cyrillic": {
+      "types": "./dist/ky-cyrillic.d.ts",
+      "import": "./dist/ky-cyrillic.js",
+      "default": "./dist/ky-cyrillic.js"
+    },
+    "./ky-cyrillic-digits": {
+      "types": "./dist/ky-cyrillic-digits.d.ts",
+      "import": "./dist/ky-cyrillic-digits.js",
+      "default": "./dist/ky-cyrillic-digits.js"
+    },
+    "./uz-cyrillic": {
+      "types": "./dist/uz-cyrillic.d.ts",
+      "import": "./dist/uz-cyrillic.js",
+      "default": "./dist/uz-cyrillic.js"
+    },
+    "./uz-cyrillic-digits": {
+      "types": "./dist/uz-cyrillic-digits.d.ts",
+      "import": "./dist/uz-cyrillic-digits.js",
+      "default": "./dist/uz-cyrillic-digits.js"
+    },
+    "./mn-cyrillic": {
+      "types": "./dist/mn-cyrillic.d.ts",
+      "import": "./dist/mn-cyrillic.js",
+      "default": "./dist/mn-cyrillic.js"
+    },
+    "./mn-cyrillic-digits": {
+      "types": "./dist/mn-cyrillic-digits.d.ts",
+      "import": "./dist/mn-cyrillic-digits.js",
+      "default": "./dist/mn-cyrillic-digits.js"
+    },
+    "./el": {
+      "types": "./dist/el.d.ts",
+      "import": "./dist/el.js",
+      "default": "./dist/el.js"
+    },
+    "./el-digits": {
+      "types": "./dist/el-digits.d.ts",
+      "import": "./dist/el-digits.js",
+      "default": "./dist/el-digits.js"
+    },
+    "./he": {
+      "types": "./dist/he.d.ts",
+      "import": "./dist/he.js",
+      "default": "./dist/he.js"
+    },
+    "./he-digits": {
+      "types": "./dist/he-digits.d.ts",
+      "import": "./dist/he-digits.js",
+      "default": "./dist/he-digits.js"
+    },
+    "./ar": {
+      "types": "./dist/ar.d.ts",
+      "import": "./dist/ar.js",
+      "default": "./dist/ar.js"
+    },
+    "./ar-digits": {
+      "types": "./dist/ar-digits.d.ts",
+      "import": "./dist/ar-digits.js",
+      "default": "./dist/ar-digits.js"
+    },
+    "./fa": {
+      "types": "./dist/fa.d.ts",
+      "import": "./dist/fa.js",
+      "default": "./dist/fa.js"
+    },
+    "./fa-digits": {
+      "types": "./dist/fa-digits.d.ts",
+      "import": "./dist/fa-digits.js",
+      "default": "./dist/fa-digits.js"
+    },
+    "./ur": {
+      "types": "./dist/ur.d.ts",
+      "import": "./dist/ur.js",
+      "default": "./dist/ur.js"
+    },
+    "./ur-digits": {
+      "types": "./dist/ur-digits.d.ts",
+      "import": "./dist/ur-digits.js",
+      "default": "./dist/ur-digits.js"
+    },
+    "./hi": {
+      "types": "./dist/hi.d.ts",
+      "import": "./dist/hi.js",
+      "default": "./dist/hi.js"
+    },
+    "./hi-digits": {
+      "types": "./dist/hi-digits.d.ts",
+      "import": "./dist/hi-digits.js",
+      "default": "./dist/hi-digits.js"
+    },
+    "./bn": {
+      "types": "./dist/bn.d.ts",
+      "import": "./dist/bn.js",
+      "default": "./dist/bn.js"
+    },
+    "./bn-digits": {
+      "types": "./dist/bn-digits.d.ts",
+      "import": "./dist/bn-digits.js",
+      "default": "./dist/bn-digits.js"
+    },
+    "./pa-gurmukhi": {
+      "types": "./dist/pa-gurmukhi.d.ts",
+      "import": "./dist/pa-gurmukhi.js",
+      "default": "./dist/pa-gurmukhi.js"
+    },
+    "./pa-gurmukhi-digits": {
+      "types": "./dist/pa-gurmukhi-digits.d.ts",
+      "import": "./dist/pa-gurmukhi-digits.js",
+      "default": "./dist/pa-gurmukhi-digits.js"
+    },
+    "./gu": {
+      "types": "./dist/gu.d.ts",
+      "import": "./dist/gu.js",
+      "default": "./dist/gu.js"
+    },
+    "./gu-digits": {
+      "types": "./dist/gu-digits.d.ts",
+      "import": "./dist/gu-digits.js",
+      "default": "./dist/gu-digits.js"
+    },
+    "./ta": {
+      "types": "./dist/ta.d.ts",
+      "import": "./dist/ta.js",
+      "default": "./dist/ta.js"
+    },
+    "./ta-digits": {
+      "types": "./dist/ta-digits.d.ts",
+      "import": "./dist/ta-digits.js",
+      "default": "./dist/ta-digits.js"
+    },
+    "./te": {
+      "types": "./dist/te.d.ts",
+      "import": "./dist/te.js",
+      "default": "./dist/te.js"
+    },
+    "./te-digits": {
+      "types": "./dist/te-digits.d.ts",
+      "import": "./dist/te-digits.js",
+      "default": "./dist/te-digits.js"
+    },
+    "./kn": {
+      "types": "./dist/kn.d.ts",
+      "import": "./dist/kn.js",
+      "default": "./dist/kn.js"
+    },
+    "./kn-digits": {
+      "types": "./dist/kn-digits.d.ts",
+      "import": "./dist/kn-digits.js",
+      "default": "./dist/kn-digits.js"
+    },
+    "./ml": {
+      "types": "./dist/ml.d.ts",
+      "import": "./dist/ml.js",
+      "default": "./dist/ml.js"
+    },
+    "./ml-digits": {
+      "types": "./dist/ml-digits.d.ts",
+      "import": "./dist/ml-digits.js",
+      "default": "./dist/ml-digits.js"
+    },
+    "./th": {
+      "types": "./dist/th.d.ts",
+      "import": "./dist/th.js",
+      "default": "./dist/th.js"
+    },
+    "./th-digits": {
+      "types": "./dist/th-digits.d.ts",
+      "import": "./dist/th-digits.js",
+      "default": "./dist/th-digits.js"
+    },
+    "./km": {
+      "types": "./dist/km.d.ts",
+      "import": "./dist/km.js",
+      "default": "./dist/km.js"
+    },
+    "./km-digits": {
+      "types": "./dist/km-digits.d.ts",
+      "import": "./dist/km-digits.js",
+      "default": "./dist/km-digits.js"
+    },
+    "./ka": {
+      "types": "./dist/ka.d.ts",
+      "import": "./dist/ka.js",
+      "default": "./dist/ka.js"
+    },
+    "./ka-digits": {
+      "types": "./dist/ka-digits.d.ts",
+      "import": "./dist/ka-digits.js",
+      "default": "./dist/ka-digits.js"
+    },
+    "./hy": {
+      "types": "./dist/hy.d.ts",
+      "import": "./dist/hy.js",
+      "default": "./dist/hy.js"
+    },
+    "./hy-digits": {
+      "types": "./dist/hy-digits.d.ts",
+      "import": "./dist/hy-digits.js",
+      "default": "./dist/hy-digits.js"
+    },
+    "./ja-hiragana": {
+      "types": "./dist/ja-hiragana.d.ts",
+      "import": "./dist/ja-hiragana.js",
+      "default": "./dist/ja-hiragana.js"
+    },
+    "./ja-hiragana-digits": {
+      "types": "./dist/ja-hiragana-digits.d.ts",
+      "import": "./dist/ja-hiragana-digits.js",
+      "default": "./dist/ja-hiragana-digits.js"
+    },
+    "./ja-katakana": {
+      "types": "./dist/ja-katakana.d.ts",
+      "import": "./dist/ja-katakana.js",
+      "default": "./dist/ja-katakana.js"
+    },
+    "./ja-katakana-digits": {
+      "types": "./dist/ja-katakana-digits.d.ts",
+      "import": "./dist/ja-katakana-digits.js",
+      "default": "./dist/ja-katakana-digits.js"
+    },
+    "./ja-kana": {
+      "types": "./dist/ja-kana.d.ts",
+      "import": "./dist/ja-kana.js",
+      "default": "./dist/ja-kana.js"
+    },
+    "./ja-kana-digits": {
+      "types": "./dist/ja-kana-digits.d.ts",
+      "import": "./dist/ja-kana-digits.js",
+      "default": "./dist/ja-kana-digits.js"
+    },
+    "./ko-jamo": {
+      "types": "./dist/ko-jamo.d.ts",
+      "import": "./dist/ko-jamo.js",
+      "default": "./dist/ko-jamo.js"
+    },
+    "./ko-jamo-digits": {
+      "types": "./dist/ko-jamo-digits.d.ts",
+      "import": "./dist/ko-jamo-digits.js",
+      "default": "./dist/ko-jamo-digits.js"
+    },
+    "./ko-hangul": {
+      "types": "./dist/ko-hangul.d.ts",
+      "import": "./dist/ko-hangul.js",
+      "default": "./dist/ko-hangul.js"
+    },
+    "./ko-hangul-digits": {
+      "types": "./dist/ko-hangul-digits.d.ts",
+      "import": "./dist/ko-hangul-digits.js",
+      "default": "./dist/ko-hangul-digits.js"
+    },
+    "./zh-common": {
+      "types": "./dist/zh-common.d.ts",
+      "import": "./dist/zh-common.js",
+      "default": "./dist/zh-common.js"
+    },
+    "./zh-common-digits": {
+      "types": "./dist/zh-common-digits.d.ts",
+      "import": "./dist/zh-common-digits.js",
+      "default": "./dist/zh-common-digits.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/alphabet.test.mjs"
+  },
+  "keywords": [
+    "alphabet",
+    "unicode",
+    "nanoid",
+    "base-x",
+    "base-n",
+    "ids",
+    "tokens"
+  ],
+  "homepage": "https://splicemood.github.io/alphabet/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/splicemood/alphabet.git",
+    "directory": "packages/js"
+  },
+  "bugs": {
+    "url": "https://github.com/splicemood/alphabet/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}

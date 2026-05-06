@@ -1,0 +1,1669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Stable Unicode alphabets for Nano ID, base-X encoders, visual IDs and localized tokens.">
+    <title>SpliceMood Alphabet</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="SpliceMood Alphabet">SpliceMood Alphabet</a>
+        <div class="nav-links">
+          <a href="#install">Install</a>
+          <a href="#usage">Usage</a>
+          <a href="#alphabets">Alphabets</a>
+          <a href="https://github.com/splicemood/alphabet">GitHub</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero-grid">
+        <div>
+          <p class="eyebrow">Cross-language registry</p>
+          <h1>Stable Unicode alphabets for localized IDs.</h1>
+          <p class="lead">
+            Deterministic alphabet strings for Nano ID, base-X encoders, visual IDs,
+            localized tokens and slugs. One source of truth generates JS, Python and Go.
+          </p>
+          <p class="note">
+            Language IDs are used where a stable letter set is practical. Kana, Hangul,
+            CJK and multi-script languages use explicit script-level names.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#usage">Copy usage snippets</a>
+            <a class="button secondary" href="#alphabets">View alphabets</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="Example import">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <pre><code>import alphabet from "@splicemood/alphabet/ru";
+
+const tokenAlphabet = alphabet;
+console.log(tokenAlphabet.length);</code></pre>
+          <button class="copy-button" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru&quot;;">Copy</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section cards" aria-label="Project properties">
+        <article>
+          <h2>Generated</h2>
+          <p>Every language package is generated from <code>data/alphabets.json</code>.</p>
+        </article>
+        <article>
+          <h2>Small</h2>
+          <p>Each alphabet is a standalone module with zero runtime dependencies.</p>
+        </article>
+        <article>
+          <h2>Deterministic</h2>
+          <p>Validation rejects duplicates, whitespace, control characters, emoji and combining marks.</p>
+        </article>
+      </section>
+
+      <section id="install" class="section split">
+        <div>
+          <p class="eyebrow">Install</p>
+          <h2>Use the same alphabet in JS, Python and Go.</h2>
+        </div>
+        <div class="snippet-list">
+          <div class="snippet">
+            <code>npm install @splicemood/alphabet</code>
+            <button type="button" data-copy="npm install @splicemood/alphabet">Copy</button>
+          </div>
+          <div class="snippet">
+            <code>pip install splicemood-alphabet</code>
+            <button type="button" data-copy="pip install splicemood-alphabet">Copy</button>
+          </div>
+          <div class="snippet">
+            <code>go get github.com/splicemood/alphabet</code>
+            <button type="button" data-copy="go get github.com/splicemood/alphabet">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="usage" class="section">
+        <p class="eyebrow">Usage</p>
+        <h2>Copy a string, plug it into your encoder.</h2>
+        <div class="code-grid">
+          <article class="code-card">
+            <header>
+              <h3>JS subpath</h3>
+              <button type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru-digits&quot;;">Copy</button>
+            </header>
+            <pre><code>import alphabet from "@splicemood/alphabet/ru-digits";</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>JS root</h3>
+              <button type="button" data-copy="import { ruDigits } from &quot;@splicemood/alphabet&quot;;">Copy</button>
+            </header>
+            <pre><code>import { ruDigits } from "@splicemood/alphabet";</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>Nano ID</h3>
+              <button type="button" data-copy="import { customAlphabet } from &quot;nanoid&quot;;&#10;import alphabet from &quot;@splicemood/alphabet/ru-digits&quot;;&#10;&#10;const createId = customAlphabet(alphabet, 21);">Copy</button>
+            </header>
+            <pre><code>import { customAlphabet } from "nanoid";
+import alphabet from "@splicemood/alphabet/ru-digits";
+
+const createId = customAlphabet(alphabet, 21);</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>Python</h3>
+              <button type="button" data-copy="from splicemood_alphabet.ru_digits import alphabet">Copy</button>
+            </header>
+            <pre><code>from splicemood_alphabet.ru_digits import alphabet</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>Go</h3>
+              <button type="button" data-copy="import &quot;github.com/splicemood/alphabet/rudigits&quot;">Copy</button>
+            </header>
+            <pre><code>import "github.com/splicemood/alphabet/rudigits"</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>Base-X</h3>
+              <button type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/en-digits&quot;;&#10;&#10;const base = [...alphabet].length;">Copy</button>
+            </header>
+            <pre><code>import alphabet from "@splicemood/alphabet/en-digits";
+
+const base = [...alphabet].length;</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="alphabets" class="section">
+        <p class="eyebrow">MVP alphabets</p>
+        <h2>Stable IDs and import paths.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>description</th>
+                <th>base</th>
+                <th>preview</th>
+                <th>copy import</th>
+              </tr>
+            </thead>
+            <tbody>
+<!-- ALPHABETS_ROWS_START -->
+          <tr>
+            <td><code>ru</code></td>
+            <td>Russian letters</td>
+            <td>66</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…шщъыьэюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ru import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ru&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ru-digits</code></td>
+            <td>Russian letters + digits</td>
+            <td>76</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ru-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ru_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/rudigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>en</code></td>
+            <td>English letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/en&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.en import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/en&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>en-digits</code></td>
+            <td>English letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/en-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.en_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/endigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>tr</code></td>
+            <td>Turkish letters</td>
+            <td>58</td>
+            <td><code>ABCÇDEFGĞHIİJK…sştuüvyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/tr&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.tr import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/tr&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>tr-digits</code></td>
+            <td>Turkish letters + digits</td>
+            <td>68</td>
+            <td><code>ABCÇDEFGĞHIİJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/tr-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.tr_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/trdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>es</code></td>
+            <td>Spanish letters</td>
+            <td>54</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/es&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.es import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/es&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>es-digits</code></td>
+            <td>Spanish letters + digits</td>
+            <td>64</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/es-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.es_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/esdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>latin</code></td>
+            <td>Basic Latin letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/latin&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.latin import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/latin&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>latin-digits</code></td>
+            <td>Basic Latin letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/latin-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.latin_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/latindigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>id</code></td>
+            <td>Indonesian letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/id&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.id import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/id&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>id-digits</code></td>
+            <td>Indonesian letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/id-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.id_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/iddigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ms</code></td>
+            <td>Malay letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ms&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ms import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ms&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ms-digits</code></td>
+            <td>Malay letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ms-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ms_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/msdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sw</code></td>
+            <td>Swahili letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sw&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sw import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sw&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sw-digits</code></td>
+            <td>Swahili letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sw-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sw_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/swdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>nl</code></td>
+            <td>Dutch letters</td>
+            <td>52</td>
+            <td><code>ABCDEFGHIJKLMN…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/nl&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.nl import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/nl&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>nl-digits</code></td>
+            <td>Dutch letters + digits</td>
+            <td>62</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/nl-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.nl_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/nldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>de</code></td>
+            <td>German letters</td>
+            <td>60</td>
+            <td><code>ABCDEFGHIJKLMN…wxyzäöüß</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/de&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.de import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/de&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>de-digits</code></td>
+            <td>German letters + digits</td>
+            <td>70</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/de-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.de_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/dedigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fr</code></td>
+            <td>French letters with common diacritics</td>
+            <td>84</td>
+            <td><code>ABCDEFGHIJKLMN…îïôœùûüÿ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fr&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fr import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/fr&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fr-digits</code></td>
+            <td>French letters with common diacritics + digits</td>
+            <td>94</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fr-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fr_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/frdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pt</code></td>
+            <td>Portuguese letters with common diacritics</td>
+            <td>78</td>
+            <td><code>ABCDEFGHIJKLMN…éêíóôõúü</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pt&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pt import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/pt&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pt-digits</code></td>
+            <td>Portuguese letters with common diacritics + digits</td>
+            <td>88</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pt-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pt_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ptdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>it</code></td>
+            <td>Italian native letters</td>
+            <td>42</td>
+            <td><code>ABCDEFGHILMNOP…pqrstuvz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/it&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.it import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/it&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>it-digits</code></td>
+            <td>Italian native letters + digits</td>
+            <td>52</td>
+            <td><code>ABCDEFGHILMNOP…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/it-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.it_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/itdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pl</code></td>
+            <td>Polish letters</td>
+            <td>64</td>
+            <td><code>AĄBCĆDEĘFGHIJK…śtuwyzźż</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pl&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pl import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/pl&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pl-digits</code></td>
+            <td>Polish letters + digits</td>
+            <td>74</td>
+            <td><code>AĄBCĆDEĘFGHIJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pl-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pl_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/pldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>cs</code></td>
+            <td>Czech single-code-point letters</td>
+            <td>82</td>
+            <td><code>AÁBCČDĎEÉĚFGHI…ůvwxyýzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/cs&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.cs import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/cs&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>cs-digits</code></td>
+            <td>Czech single-code-point letters + digits</td>
+            <td>92</td>
+            <td><code>AÁBCČDĎEÉĚFGHI…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/cs-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.cs_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/csdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sk</code></td>
+            <td>Slovak single-code-point letters</td>
+            <td>82</td>
+            <td><code>AÁÄBCČDĎEÉFGHI…úvwxyýzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sk&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sk import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sk&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sk-digits</code></td>
+            <td>Slovak single-code-point letters + digits</td>
+            <td>92</td>
+            <td><code>AÁÄBCČDĎEÉFGHI…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sk-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sk_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/skdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sl</code></td>
+            <td>Slovene letters</td>
+            <td>50</td>
+            <td><code>ABCČDEFGHIJKLM…rsštuvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sl&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sl import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sl&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sl-digits</code></td>
+            <td>Slovene letters + digits</td>
+            <td>60</td>
+            <td><code>ABCČDEFGHIJKLM…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sl-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sl_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hr</code></td>
+            <td>Croatian single-code-point letters</td>
+            <td>54</td>
+            <td><code>ABCČĆDĐEFGHIJK…rsštuvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hr&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hr import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hr&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hr-digits</code></td>
+            <td>Croatian single-code-point letters + digits</td>
+            <td>64</td>
+            <td><code>ABCČĆDĐEFGHIJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hr-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hr_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hrdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bs</code></td>
+            <td>Bosnian single-code-point letters</td>
+            <td>54</td>
+            <td><code>ABCČĆDĐEFGHIJK…rsštuvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bs&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bs import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bs&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bs-digits</code></td>
+            <td>Bosnian single-code-point letters + digits</td>
+            <td>64</td>
+            <td><code>ABCČĆDĐEFGHIJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bs-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bs_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bsdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sr-latin</code></td>
+            <td>Serbian Latin single-code-point letters</td>
+            <td>54</td>
+            <td><code>ABCČĆDĐEFGHIJK…rsštuvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sr-latin&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sr_latin import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/srlatin&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sr-latin-digits</code></td>
+            <td>Serbian Latin single-code-point letters + digits</td>
+            <td>64</td>
+            <td><code>ABCČĆDĐEFGHIJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sr-latin-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sr_latin_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/srlatindigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hu</code></td>
+            <td>Hungarian single-code-point letters</td>
+            <td>70</td>
+            <td><code>AÁBCDEÉFGHIÍJK…úüűvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hu&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hu import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hu&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hu-digits</code></td>
+            <td>Hungarian single-code-point letters + digits</td>
+            <td>80</td>
+            <td><code>AÁBCDEÉFGHIÍJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hu-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hu_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hudigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fi</code></td>
+            <td>Finnish letters</td>
+            <td>58</td>
+            <td><code>ABCDEFGHIJKLMN…vwxyzåäö</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fi&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fi import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/fi&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fi-digits</code></td>
+            <td>Finnish letters + digits</td>
+            <td>68</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fi-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fi_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/fidigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sv</code></td>
+            <td>Swedish letters</td>
+            <td>58</td>
+            <td><code>ABCDEFGHIJKLMN…vwxyzåäö</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sv&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sv import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sv&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sv-digits</code></td>
+            <td>Swedish letters + digits</td>
+            <td>68</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sv-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sv_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/svdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>no</code></td>
+            <td>Norwegian letters</td>
+            <td>58</td>
+            <td><code>ABCDEFGHIJKLMN…vwxyzæøå</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/no&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.no import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/no&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>no-digits</code></td>
+            <td>Norwegian letters + digits</td>
+            <td>68</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/no-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.no_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/nodigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>da</code></td>
+            <td>Danish letters</td>
+            <td>58</td>
+            <td><code>ABCDEFGHIJKLMN…vwxyzæøå</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/da&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.da import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/da&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>da-digits</code></td>
+            <td>Danish letters + digits</td>
+            <td>68</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/da-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.da_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/dadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>is</code></td>
+            <td>Icelandic letters</td>
+            <td>64</td>
+            <td><code>AÁBDÐEÉFGHIÍJK…úvxyýþæö</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/is&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.is import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/is&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>is-digits</code></td>
+            <td>Icelandic letters + digits</td>
+            <td>74</td>
+            <td><code>AÁBDÐEÉFGHIÍJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/is-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.is_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/isdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>et</code></td>
+            <td>Estonian letters</td>
+            <td>54</td>
+            <td><code>ABDEFGHIJKLMNO…žtuvõäöü</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/et&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.et import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/et&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>et-digits</code></td>
+            <td>Estonian letters + digits</td>
+            <td>64</td>
+            <td><code>ABDEFGHIJKLMNO…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/et-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.et_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/etdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>lv</code></td>
+            <td>Latvian letters</td>
+            <td>66</td>
+            <td><code>AĀBCČDEĒFGĢHIĪ…sštuūvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/lv&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.lv import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/lv&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>lv-digits</code></td>
+            <td>Latvian letters + digits</td>
+            <td>76</td>
+            <td><code>AĀBCČDEĒFGĢHIĪ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/lv-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.lv_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/lvdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>lt</code></td>
+            <td>Lithuanian letters</td>
+            <td>64</td>
+            <td><code>AĄBCČDEĘĖFGHIĮ…štuųūvzž</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/lt&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.lt import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/lt&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>lt-digits</code></td>
+            <td>Lithuanian letters + digits</td>
+            <td>74</td>
+            <td><code>AĄBCČDEĘĖFGHIĮ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/lt-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.lt_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ltdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ro</code></td>
+            <td>Romanian letters</td>
+            <td>62</td>
+            <td><code>AĂÂBCDEFGHIÎJK…tțuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ro&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ro import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ro&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ro-digits</code></td>
+            <td>Romanian letters + digits</td>
+            <td>72</td>
+            <td><code>AĂÂBCDEFGHIÎJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ro-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ro_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/rodigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>vi</code></td>
+            <td>Vietnamese base letters</td>
+            <td>58</td>
+            <td><code>AĂÂBCDĐEÊGHIKL…rstuưvxy</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/vi&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.vi import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/vi&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>vi-digits</code></td>
+            <td>Vietnamese base letters + digits</td>
+            <td>68</td>
+            <td><code>AĂÂBCDĐEÊGHIKL…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/vi-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.vi_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/vidigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sq</code></td>
+            <td>Albanian single-code-point letters</td>
+            <td>54</td>
+            <td><code>ABCÇDEËFGHIJKL…stuvwxyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sq&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sq import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sq&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sq-digits</code></td>
+            <td>Albanian single-code-point letters + digits</td>
+            <td>64</td>
+            <td><code>ABCÇDEËFGHIJKL…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sq-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sq_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/sqdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>az</code></td>
+            <td>Azerbaijani Latin letters</td>
+            <td>64</td>
+            <td><code>ABCÇDEƏFGĞHXIİ…sştuüvyz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/az&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.az import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/az&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>az-digits</code></td>
+            <td>Azerbaijani Latin letters + digits</td>
+            <td>74</td>
+            <td><code>ABCÇDEƏFGĞHXIİ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/az-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.az_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/azdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ca</code></td>
+            <td>Catalan letters with common diacritics</td>
+            <td>72</td>
+            <td><code>ABCDEFGHIJKLMN…èíïóòúüç</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ca&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ca import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ca&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ca-digits</code></td>
+            <td>Catalan letters with common diacritics + digits</td>
+            <td>82</td>
+            <td><code>ABCDEFGHIJKLMN…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ca-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ca_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/cadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>eo</code></td>
+            <td>Esperanto letters</td>
+            <td>56</td>
+            <td><code>ABCĈDEFGĜHĤIJĴ…rsŝtuŭvz</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/eo&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.eo import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/eo&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>eo-digits</code></td>
+            <td>Esperanto letters + digits</td>
+            <td>66</td>
+            <td><code>ABCĈDEFGĜHĤIJĴ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/eo-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.eo_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/eodigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mt</code></td>
+            <td>Maltese single-code-point letters</td>
+            <td>60</td>
+            <td><code>ABCĊDEFGĠHĦIJK…tuvwxyzż</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mt&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mt import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mt&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mt-digits</code></td>
+            <td>Maltese single-code-point letters + digits</td>
+            <td>70</td>
+            <td><code>ABCĊDEFGĠHĦIJK…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mt-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mt_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mtdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>uk</code></td>
+            <td>Ukrainian letters</td>
+            <td>66</td>
+            <td><code>АБВГҐДЕЄЖЗИІЇЙ…хцчшщьюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/uk&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.uk import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/uk&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>uk-digits</code></td>
+            <td>Ukrainian letters + digits</td>
+            <td>76</td>
+            <td><code>АБВГҐДЕЄЖЗИІЇЙ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/uk-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.uk_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ukdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>be</code></td>
+            <td>Belarusian letters</td>
+            <td>64</td>
+            <td><code>АБВГДЕЁЖЗІЙКЛМ…цчшыьэюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/be&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.be import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/be&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>be-digits</code></td>
+            <td>Belarusian letters + digits</td>
+            <td>74</td>
+            <td><code>АБВГДЕЁЖЗІЙКЛМ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/be-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.be_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bedigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bg</code></td>
+            <td>Bulgarian letters</td>
+            <td>60</td>
+            <td><code>АБВГДЕЖЗИЙКЛМН…цчшщъьюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bg&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bg import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bg&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bg-digits</code></td>
+            <td>Bulgarian letters + digits</td>
+            <td>70</td>
+            <td><code>АБВГДЕЖЗИЙКЛМН…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bg-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bg_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bgdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sr-cyrillic</code></td>
+            <td>Serbian Cyrillic letters</td>
+            <td>60</td>
+            <td><code>АБВГДЂЕЖЗИЈКЛЉ…ћуфхцчџш</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sr-cyrillic&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sr_cyrillic import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/srcyrillic&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sr-cyrillic-digits</code></td>
+            <td>Serbian Cyrillic letters + digits</td>
+            <td>70</td>
+            <td><code>АБВГДЂЕЖЗИЈКЛЉ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/sr-cyrillic-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.sr_cyrillic_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/srcyrillicdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mk</code></td>
+            <td>Macedonian letters</td>
+            <td>62</td>
+            <td><code>АБВГДЃЕЖЗЅИЈКЛ…ќуфхцчџш</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mk&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mk import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mk&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mk-digits</code></td>
+            <td>Macedonian letters + digits</td>
+            <td>72</td>
+            <td><code>АБВГДЃЕЖЗЅИЈКЛ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mk-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mk_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mkdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>kk-cyrillic</code></td>
+            <td>Kazakh Cyrillic letters</td>
+            <td>84</td>
+            <td><code>АӘБВГҒДЕЁЖЗИЙК…щъыіьэюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/kk-cyrillic&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.kk_cyrillic import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kkcyrillic&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>kk-cyrillic-digits</code></td>
+            <td>Kazakh Cyrillic letters + digits</td>
+            <td>94</td>
+            <td><code>АӘБВГҒДЕЁЖЗИЙК…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/kk-cyrillic-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.kk_cyrillic_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kkcyrillicdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ky-cyrillic</code></td>
+            <td>Kyrgyz Cyrillic letters</td>
+            <td>72</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…шщъыьэюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ky-cyrillic&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ky_cyrillic import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kycyrillic&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ky-cyrillic-digits</code></td>
+            <td>Kyrgyz Cyrillic letters + digits</td>
+            <td>82</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ky-cyrillic-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ky_cyrillic_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kycyrillicdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>uz-cyrillic</code></td>
+            <td>Uzbek Cyrillic letters</td>
+            <td>70</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…ьэюяўқғҳ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/uz-cyrillic&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.uz_cyrillic import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/uzcyrillic&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>uz-cyrillic-digits</code></td>
+            <td>Uzbek Cyrillic letters + digits</td>
+            <td>80</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/uz-cyrillic-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.uz_cyrillic_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/uzcyrillicdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mn-cyrillic</code></td>
+            <td>Mongolian Cyrillic letters</td>
+            <td>70</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…шщъыьэюя</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mn-cyrillic&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mn_cyrillic import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mncyrillic&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mn-cyrillic-digits</code></td>
+            <td>Mongolian Cyrillic letters + digits</td>
+            <td>80</td>
+            <td><code>АБВГДЕЁЖЗИЙКЛМ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/mn-cyrillic-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.mn_cyrillic_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mncyrillicdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>el</code></td>
+            <td>Greek letters</td>
+            <td>49</td>
+            <td><code>ΑΒΓΔΕΖΗΘΙΚΛΜΝΞ…στυφχψως</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/el&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.el import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/el&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>el-digits</code></td>
+            <td>Greek letters + digits</td>
+            <td>59</td>
+            <td><code>ΑΒΓΔΕΖΗΘΙΚΛΜΝΞ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/el-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.el_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/eldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>he</code></td>
+            <td>Hebrew letters with final forms</td>
+            <td>27</td>
+            <td><code>אבגדהוזחטיכךלמ…פףצץקרשת</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/he&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.he import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/he&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>he-digits</code></td>
+            <td>Hebrew letters with final forms + digits</td>
+            <td>37</td>
+            <td><code>אבגדהוזחטיכךלמ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/he-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.he_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hedigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ar</code></td>
+            <td>Arabic letters</td>
+            <td>28</td>
+            <td><code>ابتثجحخدذرزسشص…قكلمنهوي</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ar&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ar import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ar&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ar-digits</code></td>
+            <td>Arabic letters + digits</td>
+            <td>38</td>
+            <td><code>ابتثجحخدذرزسشص…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ar-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ar_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ardigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fa</code></td>
+            <td>Persian letters</td>
+            <td>33</td>
+            <td><code>آابپتثجچحخدذرز…کگلمنوهی</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fa&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fa import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/fa&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>fa-digits</code></td>
+            <td>Persian letters + digits</td>
+            <td>43</td>
+            <td><code>آابپتثجچحخدذرز…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/fa-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.fa_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/fadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ur</code></td>
+            <td>Urdu letters</td>
+            <td>40</td>
+            <td><code>آابپتٹثجچحخدڈذ…نںوہھءیے</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ur&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ur import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ur&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ur-digits</code></td>
+            <td>Urdu letters + digits</td>
+            <td>50</td>
+            <td><code>آابپتٹثجچحخدڈذ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ur-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ur_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/urdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hi</code></td>
+            <td>Hindi Devanagari independent letters</td>
+            <td>44</td>
+            <td><code>अआइईउऊऋएऐओऔकखग…यरलवशषसह</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hi&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hi import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hi&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hi-digits</code></td>
+            <td>Hindi Devanagari independent letters + digits</td>
+            <td>54</td>
+            <td><code>अआइईउऊऋएऐओऔकखग…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hi-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hi_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hidigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bn</code></td>
+            <td>Bengali independent letters</td>
+            <td>44</td>
+            <td><code>অআইঈউঊঋএঐওঔকখগ…যরলশষসহৎ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bn&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bn import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bn&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bn-digits</code></td>
+            <td>Bengali independent letters + digits</td>
+            <td>54</td>
+            <td><code>অআইঈউঊঋএঐওঔকখগ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/bn-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.bn_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/bndigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pa-gurmukhi</code></td>
+            <td>Punjabi Gurmukhi independent letters</td>
+            <td>42</td>
+            <td><code>ਅਆਇਈਉਊਏਐਓਔਕਖਗਘ…ਮਯਰਲਵਸਹੜ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pa-gurmukhi&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pa_gurmukhi import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/pagurmukhi&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>pa-gurmukhi-digits</code></td>
+            <td>Punjabi Gurmukhi independent letters + digits</td>
+            <td>52</td>
+            <td><code>ਅਆਇਈਉਊਏਐਓਔਕਖਗਘ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/pa-gurmukhi-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.pa_gurmukhi_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/pagurmukhidigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>gu</code></td>
+            <td>Gujarati independent letters</td>
+            <td>45</td>
+            <td><code>અઆઇઈઉઊઋએઐઓઔકખગ…રલવશષસહળ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/gu&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.gu import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/gu&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>gu-digits</code></td>
+            <td>Gujarati independent letters + digits</td>
+            <td>55</td>
+            <td><code>અઆઇઈઉઊઋએઐઓઔકખગ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/gu-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.gu_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/gudigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ta</code></td>
+            <td>Tamil independent letters</td>
+            <td>35</td>
+            <td><code>அஆஇஈஉஊஎஏஐஒஓஔஃக…ழளறனஜஷஸஹ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ta&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ta import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ta&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ta-digits</code></td>
+            <td>Tamil independent letters + digits</td>
+            <td>45</td>
+            <td><code>அஆஇஈஉஊஎஏஐஒஓஔஃக…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ta-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ta_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/tadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>te</code></td>
+            <td>Telugu independent letters</td>
+            <td>49</td>
+            <td><code>అఆఇఈఉఊఋౠఎఏఐఒఓఔ…లవశషసహళఱ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/te&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.te import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/te&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>te-digits</code></td>
+            <td>Telugu independent letters + digits</td>
+            <td>59</td>
+            <td><code>అఆఇఈఉఊఋౠఎఏఐఒఓఔ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/te-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.te_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/tedigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>kn</code></td>
+            <td>Kannada independent letters</td>
+            <td>48</td>
+            <td><code>ಅಆಇಈಉಊಋೠಎಏಐಒಓಔ…ರಲವಶಷಸಹಳ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/kn&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.kn import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kn&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>kn-digits</code></td>
+            <td>Kannada independent letters + digits</td>
+            <td>58</td>
+            <td><code>ಅಆಇಈಉಊಋೠಎಏಐಒಓಔ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/kn-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.kn_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kndigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ml</code></td>
+            <td>Malayalam independent letters</td>
+            <td>50</td>
+            <td><code>അആഇഈഉഊഋൠഎഏഐഒഓഔ…വശഷസഹളഴറ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ml&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ml import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ml&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ml-digits</code></td>
+            <td>Malayalam independent letters + digits</td>
+            <td>60</td>
+            <td><code>അആഇഈഉഊഋൠഎഏഐഒഓഔ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ml-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ml_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/mldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>th</code></td>
+            <td>Thai consonant letters</td>
+            <td>44</td>
+            <td><code>กขฃคฅฆงจฉชซฌญฎ…วศษสหฬอฮ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/th&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.th import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/th&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>th-digits</code></td>
+            <td>Thai consonant letters + digits</td>
+            <td>54</td>
+            <td><code>กขฃคฅฆงจฉชซฌญฎ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/th-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.th_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/thdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>km</code></td>
+            <td>Khmer consonant letters</td>
+            <td>35</td>
+            <td><code>កខគឃងចឆជឈញដឋឌឍ…លវឝឞសហឡអ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/km&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.km import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/km&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>km-digits</code></td>
+            <td>Khmer consonant letters + digits</td>
+            <td>45</td>
+            <td><code>កខគឃងចឆជឈញដឋឌឍ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/km-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.km_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kmdigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ka</code></td>
+            <td>Georgian Mkhedruli letters</td>
+            <td>33</td>
+            <td><code>აბგდევზთიკლმნო…ჩცძწჭხჯჰ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ka&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ka import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/ka&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ka-digits</code></td>
+            <td>Georgian Mkhedruli letters + digits</td>
+            <td>43</td>
+            <td><code>აბგდევზთიკლმნო…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ka-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ka_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hy</code></td>
+            <td>Armenian letters</td>
+            <td>76</td>
+            <td><code>ԱԲԳԴԵԶԷԸԹԺԻԼԽԾ…տրցւփքօֆ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hy&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hy import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hy&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>hy-digits</code></td>
+            <td>Armenian letters + digits</td>
+            <td>86</td>
+            <td><code>ԱԲԳԴԵԶԷԸԹԺԻԼԽԾ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/hy-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.hy_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/hydigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-hiragana</code></td>
+            <td>Japanese Hiragana characters</td>
+            <td>86</td>
+            <td><code>ぁあぃいぅうぇえぉおかがきぎ…わゐゑをんゔゕゖ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-hiragana&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_hiragana import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jahiragana&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-hiragana-digits</code></td>
+            <td>Japanese Hiragana characters + digits</td>
+            <td>96</td>
+            <td><code>ぁあぃいぅうぇえぉおかがきぎ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-hiragana-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_hiragana_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jahiraganadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-katakana</code></td>
+            <td>Japanese Katakana characters</td>
+            <td>86</td>
+            <td><code>ァアィイゥウェエォオカガキギ…ワヰヱヲンヴヵヶ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-katakana&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_katakana import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jakatakana&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-katakana-digits</code></td>
+            <td>Japanese Katakana characters + digits</td>
+            <td>96</td>
+            <td><code>ァアィイゥウェエォオカガキギ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-katakana-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_katakana_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jakatakanadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-kana</code></td>
+            <td>Japanese Hiragana + Katakana characters</td>
+            <td>172</td>
+            <td><code>ぁあぃいぅうぇえぉおかがきぎ…ワヰヱヲンヴヵヶ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-kana&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_kana import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jakana&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ja-kana-digits</code></td>
+            <td>Japanese Hiragana + Katakana characters + digits</td>
+            <td>182</td>
+            <td><code>ぁあぃいぅうぇえぉおかがきぎ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ja-kana-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ja_kana_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/jakanadigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ko-jamo</code></td>
+            <td>Korean Hangul compatibility Jamo</td>
+            <td>51</td>
+            <td><code>ㄱㄲㄳㄴㄵㄶㄷㄸㄹㄺㄻㄼㄽㄾ…ㅜㅝㅞㅟㅠㅡㅢㅣ</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ko-jamo&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ko_jamo import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kojamo&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ko-jamo-digits</code></td>
+            <td>Korean Hangul compatibility Jamo + digits</td>
+            <td>61</td>
+            <td><code>ㄱㄲㄳㄴㄵㄶㄷㄸㄹㄺㄻㄼㄽㄾ…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ko-jamo-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ko_jamo_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kojamodigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ko-hangul</code></td>
+            <td>Korean precomposed Hangul syllables</td>
+            <td>11172</td>
+            <td><code>가각갂갃간갅갆갇갈갉갊갋갌갍…힜힝힞힟힠힡힢힣</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ko-hangul&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ko_hangul import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kohangul&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ko-hangul-digits</code></td>
+            <td>Korean precomposed Hangul syllables + digits</td>
+            <td>11182</td>
+            <td><code>가각갂갃간갅갆갇갈갉갊갋갌갍…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/ko-hangul-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.ko_hangul_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/kohanguldigits&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>zh-common</code></td>
+            <td>CJK Unified Ideographs for Chinese-style tokens</td>
+            <td>20992</td>
+            <td><code>一丁丂七丄丅丆万丈三上下丌不…鿸鿹鿺鿻鿼鿽鿾鿿</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/zh-common&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.zh_common import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/zhcommon&quot;">Go</button>
+            </td>
+          </tr>
+          <tr>
+            <td><code>zh-common-digits</code></td>
+            <td>CJK Unified Ideographs for Chinese-style tokens + digits</td>
+            <td>21002</td>
+            <td><code>一丁丂七丄丅丆万丈三上下丌不…23456789</code></td>
+            <td>
+              <button class="copy-link" type="button" data-copy="import alphabet from &quot;@splicemood/alphabet/zh-common-digits&quot;;">JS</button>
+              <button class="copy-link" type="button" data-copy="from splicemood_alphabet.zh_common_digits import alphabet">Python</button>
+              <button class="copy-link" type="button" data-copy="import &quot;github.com/splicemood/alphabet/zhcommondigits&quot;">Go</button>
+            </td>
+          </tr>
+<!-- ALPHABETS_ROWS_END -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>MIT. Generated from one source of truth. No encoder, decoder or runtime registry.</p>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" hidden>Copied</div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

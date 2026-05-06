@@ -1,0 +1,23 @@
+.codex/
+.idea/
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.log
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+*.egg-info/
+build/
+site/
+packages/landing/dist/
+packages/js/dist/
+packages/python/dist/
+
+# Generated from data/alphabets.json at build/release time.
+packages/js/src/*.ts
+packages/python/src/splicemood_alphabet/*.py
+/*/alphabet.go
+/*/alphabet_test.go

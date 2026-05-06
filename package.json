@@ -1,0 +1,24 @@
+{
+  "name": "splicemood-alphabet-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/js",
+    "packages/landing"
+  ],
+  "scripts": {
+    "generate": "tsx scripts/generate.ts",
+    "validate": "tsx scripts/validate.ts",
+    "check:generated": "npm run generate && tsx scripts/check-generated.ts",
+    "lint": "npm run generate && npm run validate",
+    "build": "npm run generate && npm run build -w @splicemood/alphabet && npm run build -w @splicemood/alphabet-site",
+    "test": "npm run generate && npm run test -w @splicemood/alphabet && python -m pytest packages/python && go test ./...",
+    "release": "npm run check:generated && npm run build && npm run test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
