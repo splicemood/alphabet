@@ -75,14 +75,6 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: packages/python/dist
-      - name: Publish Go tag and GitHub release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          TAG="${GITHUB_REF_NAME}"
-          mkdir -p dist
-          tar --exclude-vcs --exclude=node_modules --exclude=dist -czf "dist/splicemood-alphabet-go-${TAG}.tar.gz" go.mod data scripts README.md LICENSE */alphabet.go */alphabet_test.go
-          gh release create "$TAG" "dist/splicemood-alphabet-go-${TAG}.tar.gz" --verify-tag --title "$TAG" --notes "SpliceMood Alphabet ${TAG}"
       - name: Verify Go module at tag
         env:
           GOPROXY: direct
