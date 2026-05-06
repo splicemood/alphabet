@@ -1,12 +1,9 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Release version without v prefix, for example 0.1.0"
-        required: true
-        default: "0.1.0"
+  push:
+    tags:
+      - "v*"
 
 permissions:
   contents: write
@@ -36,18 +33,17 @@ jobs:
       - run: npm install
       - run: python -m pip install build pytest
       - name: Check release version
-        env:
-          VERSION: ${{ inputs.version }}
         run: |
-          TAG="v${VERSION}"
-          git fetch --tags
-          if git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG already exists"
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#v}"
+          if [ "$TAG" = "$VERSION" ]; then
+            echo "Release tag must use v prefix, for example v0.1.0"
             exit 1
           fi
           node - <<'NODE'
           const fs = require("node:fs");
-          const version = process.env.VERSION;
+          const tag = process.env.GITHUB_REF_NAME;
+          const version = tag.replace(/^v/, "");
           const root = JSON.parse(fs.readFileSync("package.json", "utf8"));
           const js = JSON.parse(fs.readFileSync("packages/js/package.json", "utf8"));
           const pyproject = fs.readFileSync("packages/python/pyproject.toml", "utf8");
@@ -65,15 +61,14 @@ jobs:
       - run: npm run release
       - run: python -m build packages/python
       - name: Create Go module release tag
-        env:
-          VERSION: ${{ inputs.version }}
         run: |
-          TAG="v${VERSION}"
+          TAG="${GITHUB_REF_NAME}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f */alphabet.go */alphabet_test.go
           git commit -m "release: ${TAG} generated go sources"
-          git tag -a "$TAG" -m "$TAG"
+          git tag -f -a "$TAG" -m "$TAG"
+          git push origin "refs/tags/${TAG}" --force
       - run: npm publish --workspace @splicemood/alphabet --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -82,21 +77,18 @@ jobs:
           packages-dir: packages/python/dist
       - name: Publish Go tag and GitHub release
         env:
-          VERSION: ${{ inputs.version }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="v${VERSION}"
-          git push origin "$TAG"
+          TAG="${GITHUB_REF_NAME}"
           mkdir -p dist
           tar --exclude-vcs --exclude=node_modules --exclude=dist -czf "dist/splicemood-alphabet-go-${TAG}.tar.gz" go.mod data scripts README.md LICENSE */alphabet.go */alphabet_test.go
           gh release create "$TAG" "dist/splicemood-alphabet-go-${TAG}.tar.gz" --verify-tag --title "$TAG" --notes "SpliceMood Alphabet ${TAG}"
       - name: Verify Go module at tag
         env:
-          VERSION: ${{ inputs.version }}
           GOPROXY: direct
           GONOSUMDB: github.com/splicemood/alphabet
         run: |
-          TAG="v${VERSION}"
+          TAG="${GITHUB_REF_NAME}"
           CHECK_DIR="$(mktemp -d)"
           cd "$CHECK_DIR"
           go mod init release-check
