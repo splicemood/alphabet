@@ -275,7 +275,7 @@ Required repository setup:
 - GitHub Actions workflow permissions: read and write.
 - No tag protection that blocks GitHub Actions from updating `v*` tags.
 - GitHub Pages source: GitHub Actions.
-- npm Trusted Publishing configured for `@splicemood/alphabet` and `.github/workflows/release.yml`.
+- GitHub secret `NPM_TOKEN` with a granular npm access token that has publish access and bypass 2FA enabled.
 - PyPI Trusted Publishing configured for `splicemood-alphabet` and `.github/workflows/release.yml`.
 
 Release `0.1.0`:

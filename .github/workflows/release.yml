@@ -71,6 +71,8 @@ jobs:
           git tag -f -a "$TAG" -m "$TAG"
           git push origin "refs/tags/${TAG}" --force
       - run: npm publish --workspace @splicemood/alphabet --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: packages/python/dist
