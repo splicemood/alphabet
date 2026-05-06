@@ -266,7 +266,20 @@ npm run check:generated
 
 ## Release
 
-The initial version is `0.1.0` for npm, PyPI and the Go module. Go releases are resolved by git tags, for example `v0.1.0`.
+The initial version is `0.1.0` for npm, PyPI and the Go module.
+
+Do not push release tags manually. The GitHub Actions release workflow takes a version, generates package sources, validates the repo, publishes npm and PyPI packages, creates a release-only commit with generated Go sources, tags it as `v0.1.0`, and creates a GitHub Release.
+
+Required repository setup:
+
+- GitHub Actions workflow permissions: read and write.
+- GitHub Pages source: GitHub Actions.
+- GitHub secret `NPM_TOKEN` with publish access to `@splicemood/alphabet`.
+- PyPI Trusted Publishing configured for `splicemood-alphabet` and `.github/workflows/release.yml`.
+
+Release `0.1.0` from GitHub Actions → Release → Run workflow → `version = 0.1.0`.
+
+Local preflight:
 
 ```sh
 npm run release
